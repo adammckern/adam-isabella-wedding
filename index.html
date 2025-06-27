@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adam & Isabella's Wedding</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #333; }
+    header, section { padding: 2rem; }
+    header { background: #eaeaea; text-align: center; }
+    h1 { margin-bottom: 0.5rem; }
+    .countdown { font-size: 1.2rem; margin-top: 1rem; }
+    section { border-bottom: 1px solid #ccc; background: white; }
+    .section-title { font-size: 1.5rem; color: #555; margin-bottom: 1rem; }
+    .rsvp-form input, .rsvp-form textarea { display: block; width: 100%; margin-bottom: 1rem; padding: 0.5rem; }
+    .rsvp-form button { padding: 0.5rem 1rem; background: #333; color: white; border: none; cursor: pointer; }
+    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #999; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Adam & Isabella</h1>
+    <p>We're getting married!</p>
+    <div class="countdown" id="countdown"></div>
+  </header>
+
+  <section>
+    <div class="section-title">Our Story</div>
+    <p>We met, we laughed, we fell in love. Join us as we start our next chapter together.</p>
+  </section>
+
+  <section>
+    <div class="section-title">Wedding Details</div>
+    <p><strong>Date:</strong> Saturday, 23rd May 2026<br>
+    <strong>Location:</strong> Ocean View Estate, Queensland</p>
+    <p><a href="https://maps.google.com/?q=Ocean+View+Estate+Queensland" target="_blank">View Map</a></p>
+  </section>
+
+  <section>
+    <div class="section-title">Schedule of the Day</div>
+    <ul>
+      <li>3:00 PM – Ceremony</li>
+      <li>4:00 PM – Cocktail Hour</li>
+      <li>5:30 PM – Reception Dinner</li>
+      <li>8:00 PM – Dancing & Celebration</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-title">Accommodation</div>
+    <p>We recommend staying nearby in Mount Mee, Dayboro, or Samford. A list of options will be added soon!</p>
+  </section>
+
+  <section>
+    <div class="section-title">Registry</div>
+    <p>Your presence is the best gift we could ask for. If you'd still like to give, we will be linking our registry soon.</p>
+  </section>
+
+  <section>
+    <div class="section-title">Gallery</div>
+    <p>Photos coming soon! Follow us on <a href="https://instagram.com" target="_blank">Instagram</a> for sneak peeks.</p>
+  </section>
+
+  <section>
+    <div class="section-title">Bridal Party</div>
+    <p>Details and bios about our wonderful bridal party will be added here soon!</p>
+  </section>
+
+  <section>
+    <div class="section-title">FAQs</div>
+    <p><strong>Can I bring a plus one?</strong><br> Please refer to your invitation. We'd love to keep the celebration intimate!</p>
+    <p><strong>Is there parking at the venue?</strong><br> Yes, ample on-site parking is available.</p>
+  </section>
+
+  <section>
+    <div class="section-title">RSVP</div>
+    <form class="rsvp-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Message (e.g. dietary needs)"></textarea>
+      <button type="submit">Submit RSVP</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Adam & Isabella</p>
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const countdown = document.getElementById("countdown");
+    const weddingDate = new Date("2026-05-23T15:00:00").getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "We're Married!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until we say "I do"`;
+    }, 1000);
+  </script>
+</body>
+</html>
